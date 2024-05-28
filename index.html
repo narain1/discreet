@@ -257,9 +257,17 @@
 			</div>
 			<h1>Mistral 7B in any browser</h1>
     		<h2 class="text-base font-medium text-gray-700 mb-2 text-center">Made with <a href="https://github.com/ngxson/wllama">Wllama</a></h2>
-      					<br/>
+      		
+			
+			<div id="download-explanation">
+				<p><span class="hide-if-smaller"> This will download a 4.3 GB AI model to your device. Alternatively, you can also <a href="index.html?smaller">load a smaller 1GB model</a>.</span></p>
+			
+      			<p>Downloading only needs to happen once. The next time you open this page the AI model will load instantly from your browser's cache.</p>
+				<br/>
 			</div>
+			<!--
 			<button id="download-button">Download</button>
+			-->
 			
 			
 			
@@ -354,13 +362,39 @@
 		
 		// Yes that's a 32K context model that we're loading.
 		let model_url = [
-                  "https://huggingface.co/rahuldshetty/gemma-2b-gguf-quantized/blob/main/gemma-2b-Q4_K_M.gguf"
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00001-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00002-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00003-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00004-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00005-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00006-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00007-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00008-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00009-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00010-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00011-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00012-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00013-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00014-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00015-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00016-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00017-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00018-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00019-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00020-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00021-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00022-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00023-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00024-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00025-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00026-of-00027.gguf",
+"https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00027-of-00027.gguf"
 		]
 		
 		// For this demo it's also possible to load a much smaller model, which will also run much faster. This one, Danube 2, has an 8K context
 	    if(window.location.href.indexOf('smaller') != -1 || window.location.search.indexOf('smaller') != -1){
 			smaller_model = true;
-			model_url = 'https://huggingface.co/rahuldshetty/gemma-2b-gguf-quantized/blob/main/gemma-2b-Q4_K_M.gguf';
+			model_url = 'https://huggingface.co/bartowski/h2o-danube2-1.8b-chat-GGUF/resolve/main/h2o-danube2-1.8b-chat-Q5_0.gguf';
 			document.body.classList.add('doing-smaller');
 	    }
 		
@@ -415,11 +449,13 @@
 		
 		
 		// Download button (removed to simplify the demo)
+		/*
 		const download_button = document.getElementById('download-button');
 		download_button.addEventListener('click', () => {
 			console.log("Starting model download");
 			download_model(model_url,model_settings);
 		});
+		*/
 		
 		// Interrupt button
 		const interrupt_button = document.getElementById('interrupt-button');
