@@ -19,14 +19,14 @@
   <div id="output"></div>
 
   <script type="module">
-    import { Wllama, LoggerWithoutDebug } from '../../esm/index.js';
+    import { Wllama, LoggerWithoutDebug } from 'wllama/index.js';
 
     const CONFIG_PATHS = {
-      'single-thread/wllama.js'       : '../../esm/single-thread/wllama.js',
-      'single-thread/wllama.wasm'     : '../../esm/single-thread/wllama.wasm',
-      'multi-thread/wllama.js'        : '../../esm/multi-thread/wllama.js',
-      'multi-thread/wllama.wasm'      : '../../esm/multi-thread/wllama.wasm',
-      'multi-thread/wllama.worker.mjs': '../../esm/multi-thread/wllama.worker.mjs',
+      'single-thread/wllama.js'       : 'wllama/single-thread/wllama.js',
+      'single-thread/wllama.wasm'     : 'wllama/single-thread/wllama.wasm',
+      'multi-thread/wllama.js'        : 'wllama/multi-thread/wllama.js',
+      'multi-thread/wllama.wasm'      : 'wllama/multi-thread/wllama.wasm',
+      'multi-thread/wllama.worker.mjs': 'wllama/multi-thread/wllama.worker.mjs',
     };
 
     // Or, try loading a bigger model (1.3GB in total)
