@@ -253,8 +253,9 @@
 	<div id="centered">
 		<div>
 			<h1>Model demo in the browser</h1>
-      		
+      	<!--	
 			<button id="download-button">Download</button>
+        -->
 			
 			
 			
@@ -275,10 +276,10 @@
 		
 			<div id="footer-main">
 	    		<label for="prompt" class="block text-sm font-medium text-gray-600">Prompt</label><br/>
-	      		<textarea id="prompt">What's the difference between red and green apples?</textarea><br/>
+	      		<textarea id="prompt">How do i find east direction</textarea><br/>
 	  
 	    		<div class="flex column setting">
-	    			<label>Creativity</label> 
+	    			<label>Temperature</label> 
 	    			<div class="flex">
 	    		    	0.1 <input id="temperature" type="range" min="0.1" max="1.4" step=".1" value="0.7"/> 1.4
 	    	  		</div>
@@ -415,12 +416,13 @@
 		
 		
 		// Download button (removed to simplify the demo)
-		
+	<!--	
 		const download_button = document.getElementById('download-button');
 		download_button.addEventListener('click', () => {
 			console.log("Starting model download");
 			download_model(model_url,model_settings);
 		});
+                -->
 		
 		
 		// Interrupt button
@@ -468,9 +470,9 @@
 				
 				document.body.classList.add('running');
 				
-				prompt = `<|user|>
-				` + prompt +  `<|end|>
-				<|assistant|>
+                                prompt = `<start_of_turn>user
+				` + prompt +  `<end_of_turn>
+				<start_of_turn>model
 				`;
 
 				//prompt = `<s>[INST]` + prompt +  `[/INST]</s>
