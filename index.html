@@ -44,9 +44,9 @@
         logger: LoggerWithoutDebug,
       });
 
-      print(`Loading model ${MODEL}`);
+      print(`Loading model`);
       timeStart();
-      await wllama.loadModelFromUrl(MODEL, {
+      await wllama.loadModelFromUrl(MODEL_SPLITS, {
         embeddings: true,
         n_ctx: 1024,
         progressCallback: ({ loaded, total }) => console.log(`Downloading... ${Math.round(loaded/total*100)}%`),
