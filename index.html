@@ -1,69 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<title>Narain LLM Demo</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Narain LLM Demo</title>
 
-		<link rel="stylesheet" href="styles.css" />
-	</head>
-	<body class="not-downloaded-yet">
-		<div id="centered">
-			<div>
-				<h1>Model demo in the browser</h1>
-				<!-- <button id="download-button">Download</button> -->
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="icon" type="image/x-icon" href="pink.png">
+    </head>
+    <body class="not-downloaded-yet">
+        <div id="centered">
+            <div>
+                <h1>Model demo in the browser</h1>
+                <!-- <button id="download-button">Download</button> -->
 
-				<label for="model">Choose a Model:</label>
+                <label for="model">Choose a Model:</label>
 
-				<select name="model" id="model">
-					<option value="1">gamma-2b</option>
-					<option value="2">mistral-7b</option>
-					<option value="3">llama3-8b</option>
-					<option value="4">4</option>
-				</select>
+                <select name="model" id="model">
+                    <option value="1">gamma-2b</option>
+                    <option value="2">mistral-7b</option>
+                    <option value="3">llama3-8b</option>
+                    <option value="4">4</option>
+                </select>
 
-				<div id="progress-bar-container">
-					<p>Downloading...</p>
-					<progress id="progress-bar" aria-label="Generating…"></progress>
-					<div id="time-remaining"></div>
-				</div>
-			</div>
+                <div id="progress-bar-container">
+                    <p>Downloading...</p>
+                    <progress id="progress-bar" aria-label="Generating…"></progress>
+                    <div id="time-remaining"></div>
+                </div>
+            </div>
 
-			<div id="chat-container">
-				<div id="output-container"></div>
-			</div>
+            <div id="chat-container">
+                <div id="output-container"></div>
+            </div>
 
-			<div id="footer">
-				<div id="footer-main">
-					<label for="prompt" class="block text-sm font-medium text-gray-600"
-						>Prompt</label
-					><br />
-					<textarea id="prompt">How do i find east direction</textarea><br />
+            <div id="footer">
+                <div id="footer-main">
+                    <label for="prompt" class="block text-sm font-medium text-gray-600">Prompt</label><br />
+                    <textarea id="prompt">How do i find east direction</textarea><br />
 
-					<div class="flex column setting">
-						<label>Temperature</label>
-						<div class="flex">
-							0.1
-							<input
-								id="temperature"
-								type="range"
-								min="0.1"
-								max="1.4"
-								step=".1"
-								value="0.7" />
-							1.4
-						</div>
-					</div>
-				</div>
+                    <div class="flex column setting">
+                        <label>Temperature</label>
+                        <div class="flex">
+                            0.1
+                            <input
+                                id="temperature"
+                                type="range"
+                                min="0.1"
+                                max="1.4"
+                                step=".1"
+                                value="0.7" />
+                            1.4
+                        </div>
+                    </div>
+                </div>
 
-				<div class="button-container">
-					<button id="submit-button">submit</button>
-					<button id="interrupt-button">🛑</button>
-				</div>
-			</div>
-		</div>
+                <div class="button-container">
+                    <button id="submit-button">submit</button>
+                    <button id="interrupt-button">🛑</button>
+                </div>
+            </div>
+        </div>
 
-		<script type="module" src="index.js"></script>
-	</body>
+        <script type="module" src="index.js"></script>
+    </body>
 </html>
