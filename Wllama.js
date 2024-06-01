@@ -135,8 +135,8 @@ export const getModelSettings = ({
 		const progress_bar_container_el = document.getElementById(
 			'progress-bar-container'
 		);
-                progress_bar_container_el.style.display = 'block';
 		return ({ loaded, total }) => {
+                        progress_bar_container_el.style.display = 'block';
 			console.log(
 				`Wllama: downloading... ${Math.round((loaded / total) * 100)}%`
 			);
