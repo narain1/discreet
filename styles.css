@@ -185,7 +185,7 @@ body:not(.running) #interrupt-button {
 		rgba(59, 173, 227, 0.5) 56%,
 		rgba(59, 173, 227, 0.5) 100%
 	);
-	animation: bg-sweep-to-right 2s linear infinite;
+	/* animation: bg-sweep-to-right 2s linear infinite; */
 }
 @keyframes bg-sweep-to-right {
 	0% {
