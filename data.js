@@ -70,4 +70,20 @@ export const models = {
 		],
 		modelSettings: getModelSettings({}),
 	},
+	4: {
+		modelUrls: [
+				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/blob/main/phi-3-mini-4k-instruct-q4_k_m-00001-of-00010.gguf',
+				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/blob/main/phi-3-mini-4k-instruct-q4_k_m-00002-of-00010.gguf',
+				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/blob/main/phi-3-mini-4k-instruct-q4_k_m-00003-of-00010.gguf',
+				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/blob/main/phi-3-mini-4k-instruct-q4_k_m-00004-of-00010.gguf',
+				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/blob/main/phi-3-mini-4k-instruct-q4_k_m-00005-of-00010.gguf',
+				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/blob/main/phi-3-mini-4k-instruct-q4_k_m-00006-of-00010.gguf',
+				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/blob/main/phi-3-mini-4k-instruct-q4_k_m-00007-of-00010.gguf',
+				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/blob/main/phi-3-mini-4k-instruct-q4_k_m-00008-of-00010.gguf',
+				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/blob/main/phi-3-mini-4k-instruct-q4_k_m-00009-of-00010.gguf',
+				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/blob/main/phi-3-mini-4k-instruct-q4_k_m-00010-of-00010.gguf',
+		],
+		modelSettings: getModelSettings({}),
+	},
+                        
 };
