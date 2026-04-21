@@ -55,21 +55,4 @@ export const models = {
 		],
 		modelSettings: getModelSettings({}),
 	},
-	6: {
-		label: 'Llama 3 ChatQA · 8B',
-		sizeMB: 4900,
-		modelUrls: [
-			'https://huggingface.co/narainp/Llama3-ChatQA-1.5-8B-Q4_K_M-GGUF/resolve/main/llama3-chatqa-1-00001-of-00010.gguf',
-			'https://huggingface.co/narainp/Llama3-ChatQA-1.5-8B-Q4_K_M-GGUF/resolve/main/llama3-chatqa-1-00002-of-00010.gguf',
-			'https://huggingface.co/narainp/Llama3-ChatQA-1.5-8B-Q4_K_M-GGUF/resolve/main/llama3-chatqa-1-00003-of-00010.gguf',
-			'https://huggingface.co/narainp/Llama3-ChatQA-1.5-8B-Q4_K_M-GGUF/resolve/main/llama3-chatqa-1-00004-of-00010.gguf',
-			'https://huggingface.co/narainp/Llama3-ChatQA-1.5-8B-Q4_K_M-GGUF/resolve/main/llama3-chatqa-1-00005-of-00010.gguf',
-			'https://huggingface.co/narainp/Llama3-ChatQA-1.5-8B-Q4_K_M-GGUF/resolve/main/llama3-chatqa-1-00006-of-00010.gguf',
-			'https://huggingface.co/narainp/Llama3-ChatQA-1.5-8B-Q4_K_M-GGUF/resolve/main/llama3-chatqa-1-00007-of-00010.gguf',
-			'https://huggingface.co/narainp/Llama3-ChatQA-1.5-8B-Q4_K_M-GGUF/resolve/main/llama3-chatqa-1-00008-of-00010.gguf',
-			'https://huggingface.co/narainp/Llama3-ChatQA-1.5-8B-Q4_K_M-GGUF/resolve/main/llama3-chatqa-1-00009-of-00010.gguf',
-			'https://huggingface.co/narainp/Llama3-ChatQA-1.5-8B-Q4_K_M-GGUF/resolve/main/llama3-chatqa-1-00010-of-00010.gguf',
-		],
-		modelSettings: getModelSettings({}),
-	},
 };

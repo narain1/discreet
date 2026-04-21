@@ -31,8 +31,14 @@ export class MyWallma {
 		if (this.exited) return;
 		this.exited = true;
 		this.interrupt_wllama = true;
+		// Only call exit() if we actually started loading — otherwise the worker
+		// may never have been initialized and exit() can hang.
+		if (!this.model_downloaded && !this.is_generating) return;
 		try {
-			await this.llama_cpp_app.exit();
+			await Promise.race([
+				this.llama_cpp_app.exit(),
+				new Promise((resolve) => setTimeout(resolve, 3000)),
+			]);
 		} catch (err) {
 			console.warn('wllama exit error (safe to ignore if not loaded):', err);
 		}

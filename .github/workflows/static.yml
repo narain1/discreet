@@ -21,6 +21,12 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+# Force Node 24 for JS actions that haven't yet released Node 24 builds
+# (configure-pages, deploy-pages, upload-pages-artifact). checkout@v5 already
+# runs on Node 24 natively.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -30,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
