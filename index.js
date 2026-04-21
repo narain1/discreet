@@ -1,52 +1,78 @@
 import { MyWallma } from './Wllama.js';
 import { models } from './data.js';
 
-import { clearCache } from './utils.js';
+const promptEl = () => document.getElementById('prompt');
+const submitBtn = () => document.getElementById('submit-button');
+const interruptBtn = () => document.getElementById('interrupt-button');
+const outputEl = () => document.getElementById('output-container');
+const modelSelect = () => document.getElementById('model');
 
-function getModel(modelUrls, modelSettings) {
-	// Some elements on the page
-	const prompt_el = document.getElementById('prompt');
-	const wallma = new MyWallma(modelUrls, modelSettings);
+let currentWllama = null;
+let currentListeners = null;
+let switchToken = 0;
 
-	// Download button (removed to simplify the demo)
-
-	const interrupt_button = document.getElementById('interrupt-button');
-	const submit_button = document.getElementById('submit-button');
-
-	const interuptCB = () => {
-		wallma.interrupt();
-	};
-
-	const inferCB = () => {
-		wallma.infer(prompt_el.value);
-	};
-
-	interrupt_button.addEventListener('click', interuptCB);
-	submit_button.addEventListener('click', inferCB);
-
-	const cleanUp = () => {
-		wallma.cleanUp().catch(console.error);
-		interrupt_button.removeEventListener('click', interuptCB);
-		submit_button.removeEventListener('click', inferCB);
-	};
-	return cleanUp;
+function detachListeners() {
+	if (!currentListeners) return;
+	submitBtn().removeEventListener('click', currentListeners.submit);
+	interruptBtn().removeEventListener('click', currentListeners.interrupt);
+	currentListeners = null;
 }
 
-let cleanUpFunc = getModel(models[1].modelUrls, models[1].modelSettings);
-document.getElementById('model').addEventListener('change', async function () {
-	cleanUpFunc();
+function attachListeners(wllama) {
+	const submit = () => wllama.infer(promptEl().value);
+	const interrupt = () => wllama.interrupt();
+	submitBtn().addEventListener('click', submit);
+	interruptBtn().addEventListener('click', interrupt);
+	currentListeners = { submit, interrupt };
+}
 
-	cleanUpFunc = getModel(
-		models[this.value].modelUrls,
-		models[this.value].modelSettings
-	);
-	console.log(this.value);
+async function switchModel(key) {
+	const token = ++switchToken;
+	detachListeners();
+
+	if (currentWllama) {
+		const old = currentWllama;
+		currentWllama = null;
+		await old.cleanUp();
+	}
+	if (token !== switchToken) return; // a newer switch superseded us
+
+	outputEl().textContent = '';
+	outputEl().classList.remove('show');
+	document.body.classList.add('not-downloaded-yet');
+
+	const entry = models[key] || models[1];
+	currentWllama = new MyWallma(entry.modelUrls, entry.modelSettings);
+	attachListeners(currentWllama);
+}
+
+function populateModels() {
+	const select = modelSelect();
+	select.innerHTML = '';
+	Object.entries(models).forEach(([key, m]) => {
+		const opt = document.createElement('option');
+		opt.value = key;
+		opt.textContent = `${m.label} · ~${m.sizeMB} MB`;
+		select.appendChild(opt);
+	});
+}
+
+function detectEmbed() {
+	try {
+		const isIframe = window.self !== window.top;
+		const params = new URLSearchParams(window.location.search);
+		if (isIframe || params.has('embed')) {
+			document.body.classList.add('embedded');
+		}
+	} catch (_) {
+		document.body.classList.add('embedded');
+	}
+}
+
+detectEmbed();
+populateModels();
+switchModel(modelSelect().value);
+
+modelSelect().addEventListener('change', function () {
+	switchModel(this.value);
 });
-
-//clear cache on page unload
-
-// addEventListener('beforeunload', (event) => {
-// 	clearCache();
-// });
-
-// Yes that's a 32K context model that we're loading.

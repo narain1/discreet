@@ -1,61 +1,63 @@
 import { getModelSettings } from './Wllama.js';
 
+// Chat template roles supported by Wllama's createChatCompletion
+// Each model entry supplies: label, modelUrls (string or string[] for shards),
+// sizeMB (rough, for UI hint), and modelSettings.
 export const models = {
-	undefined: {
-		modelUrls: [
-			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00001-of-00006.gguf',
-			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00002-of-00006.gguf',
-			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00003-of-00006.gguf',
-			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00004-of-00006.gguf',
-			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00005-of-00006.gguf',
-			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00006-of-00006.gguf',
-		],
-		modelSettings: getModelSettings({}),
-	},
 	1: {
-		modelUrls: [
-			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00001-of-00006.gguf',
-			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00002-of-00006.gguf',
-			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00003-of-00006.gguf',
-			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00004-of-00006.gguf',
-			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00005-of-00006.gguf',
-			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00006-of-00006.gguf',
-		],
-		modelSettings: getModelSettings({}),
+		label: 'Qwen 2.5 · 0.5B',
+		sizeMB: 380,
+		modelUrls:
+			'https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q4_k_m.gguf',
+		modelSettings: getModelSettings({ n_ctx: 4096 }),
 	},
 	2: {
+		label: 'Llama 3.2 · 1B',
+		sizeMB: 808,
+		modelUrls:
+			'https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF/resolve/main/Llama-3.2-1B-Instruct-Q4_K_M.gguf',
+		modelSettings: getModelSettings({ n_ctx: 4096 }),
+	},
+	3: {
+		label: 'Qwen 2.5 · 1.5B',
+		sizeMB: 986,
+		modelUrls:
+			'https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1.5b-instruct-q4_k_m.gguf',
+		modelSettings: getModelSettings({ n_ctx: 4096 }),
+	},
+	4: {
+		label: 'Gemma 2B',
+		sizeMB: 1500,
 		modelUrls: [
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00001-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00002-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00003-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00004-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00005-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00006-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00007-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00008-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00009-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00010-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00011-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00012-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00013-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00014-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00015-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00016-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00017-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00018-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00019-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00020-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00021-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00022-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00023-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00024-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00025-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00026-of-00027.gguf',
-			'https://huggingface.co/BoscoTheDog/inspire_mistral_7B_32K_chunked/resolve/main/inspire-Mistral-7B-v2-DPO-V0.2.1-32k.Q3_K_S-00027-of-00027.gguf',
+			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00001-of-00006.gguf',
+			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00002-of-00006.gguf',
+			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00003-of-00006.gguf',
+			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00004-of-00006.gguf',
+			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00005-of-00006.gguf',
+			'https://huggingface.co/narainp/gemma-2b-it-Q4_0-GGUF/resolve/main/gemma-2b-it-q4_0-00006-of-00006.gguf',
 		],
 		modelSettings: getModelSettings({}),
 	},
-	3: {
+	5: {
+		label: 'Phi-3 mini · 3.8B',
+		sizeMB: 2400,
+		modelUrls: [
+			'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00001-of-00010.gguf',
+			'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00002-of-00010.gguf',
+			'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00003-of-00010.gguf',
+			'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00004-of-00010.gguf',
+			'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00005-of-00010.gguf',
+			'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00006-of-00010.gguf',
+			'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00007-of-00010.gguf',
+			'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00008-of-00010.gguf',
+			'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00009-of-00010.gguf',
+			'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00010-of-00010.gguf',
+		],
+		modelSettings: getModelSettings({}),
+	},
+	6: {
+		label: 'Llama 3 ChatQA · 8B',
+		sizeMB: 4900,
 		modelUrls: [
 			'https://huggingface.co/narainp/Llama3-ChatQA-1.5-8B-Q4_K_M-GGUF/resolve/main/llama3-chatqa-1-00001-of-00010.gguf',
 			'https://huggingface.co/narainp/Llama3-ChatQA-1.5-8B-Q4_K_M-GGUF/resolve/main/llama3-chatqa-1-00002-of-00010.gguf',
@@ -70,20 +72,4 @@ export const models = {
 		],
 		modelSettings: getModelSettings({}),
 	},
-	4: {
-		modelUrls: [
-				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00001-of-00010.gguf',
-				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00002-of-00010.gguf',
-				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00003-of-00010.gguf',
-				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00004-of-00010.gguf',
-				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00005-of-00010.gguf',
-				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00006-of-00010.gguf',
-				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00007-of-00010.gguf',
-				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00008-of-00010.gguf',
-				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00009-of-00010.gguf',
-				'https://huggingface.co/narainp/Phi-3-mini-4k-instruct-Q4_K_M-GGUF/resolve/main/phi-3-mini-4k-instruct-q4_k_m-00010-of-00010.gguf',
-		],
-		modelSettings: getModelSettings({}),
-	},
-                        
 };
