@@ -1,5 +1,12 @@
 import { Wllama } from 'https://cdn.jsdelivr.net/npm/@wllama/wllama@2.3.7/esm/index.js';
-import WasmFromCDN from 'https://cdn.jsdelivr.net/npm/@wllama/wllama@2.3.7/esm/wasm-from-cdn.js';
+
+// wasm-from-cdn.js helper was removed in 2.3.x — inline the paths.
+const WasmFromCDN = {
+	'single-thread/wllama.wasm':
+		'https://cdn.jsdelivr.net/npm/@wllama/wllama@2.3.7/esm/single-thread/wllama.wasm',
+	'multi-thread/wllama.wasm':
+		'https://cdn.jsdelivr.net/npm/@wllama/wllama@2.3.7/esm/multi-thread/wllama.wasm',
+};
 
 export class MyWallma {
 	constructor(modelUrls, modelSettings) {
